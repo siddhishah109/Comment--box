@@ -1,14 +1,36 @@
-import React from 'react';
-
-import './App.css';
-
+import React, { useState } from 'react';
+import CommentBox from './components/Commentbox';
+import { Comment } from './components/types';
 
 function App() {
-  return (
-    <div className="App">
-      <h1>hii</h1>
+  const [commentD, setCommentD] = useState<Comment>({
+    id: '1',
+    name: 'caf',
+    item: [
+      {
+        id: '234',
+        name: "hii",
+        item: [
+          {
+            id: '2937290',
+            name: "hello",
+            item: [
+              {
+                id: '945720',
+                name: "sdfs",
+                item: []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  });
 
-    </div>
+  return (
+    <>
+      <CommentBox comment={commentD} />
+    </>
   );
 }
 
