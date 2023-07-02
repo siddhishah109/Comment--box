@@ -1,37 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CommentBox from './components/Commentbox';
 import { Comment } from './components/types';
 
-function App() {
-  const [commentD, setCommentD] = useState<Comment>({
+const App: React.FC = () => {
+  const initialComment: Comment = {
     id: '1',
-    name: 'caf',
-    item: [
-      {
-        id: '234',
-        name: "hii",
-        item: [
-          {
-            id: '2937290',
-            name: "hello",
-            item: [
-              {
-                id: '945720',
-                name: "sdfs",
-                item: []
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  });
+    name: 'Initial Comment',
+    item: [],
+  };
 
   return (
-    <>
-      <CommentBox comment={commentD} />
-    </>
+    <div className="App">
+      <h1>Comments</h1>
+      <CommentBox comment={initialComment} />
+    </div>
   );
-}
+};
 
 export default App;
