@@ -7,7 +7,7 @@ export interface IButtonProps {
   handleClick?: () => void;
 }
 
-export default function Button(props: IButtonProps) {
+export default function Buttonb(props: IButtonProps) {
   return (
     <div className={props.className} onClick={props.handleClick}>
      {props.type}

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CommentBox from './components/Commentbox';
 import { Comment } from './components/types';
+import './App.css'
+
 
 const App: React.FC = () => {
   const initialComment: Comment = {
@@ -9,10 +11,27 @@ const App: React.FC = () => {
     item: [],
   };
 
+  const [comments, setComments] = useState<Comment[]>([]);
+
+  // const handleDeleteComment = (commentId: string) => {
+  //   setComments((prevComments) => prevComments.filter((comment) => comment.id !== commentId));
+  // };
   return (
-    <div className="App">
-      <h1>Comments</h1>
-      <CommentBox comment={initialComment} />
+    <div className="App p-10 bg-black ">
+     
+      <div className=' box '>
+      <CommentBox
+        comment={initialComment}
+
+      />
+      {comments.map((comment) => (
+        <CommentBox
+          key={comment.id}
+          comment={comment}
+       
+        />
+      ))}
+      </div>
     </div>
   );
 };
