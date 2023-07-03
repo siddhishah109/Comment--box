@@ -13,10 +13,7 @@ const App: React.FC = () => {
   };
 
   const [comments, setComments] = useState<Comment[]>([]);
-
-  // const handleDeleteComment = (commentId: string) => {
-  //   setComments((prevComments) => prevComments.filter((comment) => comment.id !== commentId));
-  // };
+  
   return (
     <div className="App p-10 bg-black ">
      <Particlesp/>

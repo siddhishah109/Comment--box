@@ -33,13 +33,7 @@ const Commentbox = (props: CommentboxProps) => {
       setComments([newComment, ...comments]);
       setInput('');
     }
-  };
-
-  const handleDelete = (commentId: string) => {
-    setComments((prevComments) =>
-      prevComments.filter((comment) => comment.id !== commentId)
-    );
-  };
+  }
 
   const handleLike = () => {
     setIsLiked(!isLiked);
