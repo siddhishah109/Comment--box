@@ -42,7 +42,7 @@ const handleDelete = (commentId: string) => {
       {props.comment.id === '1' ? (
         <div className='flex mb-1'>
           <input
-          className='bg-gray-500 border border-gray-100 text-gray-200 text-sm mr-3 rounded-lg focus:ring-amber-500 focus:border-amber-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-200 dark:text-white dark:focus:ring-blue-500 w-96 dark:focus:border-blue-500'
+          className='relative bg-gray-500 border border-gray-100 text-gray-200 text-sm mr-3 rounded-lg focus:ring-amber-500 focus:border-amber-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-200 dark:text-white dark:focus:ring-blue-500 w-96 dark:focus:border-blue-500'
             type='text'
             value={input}
             autoFocus
@@ -64,7 +64,7 @@ const handleDelete = (commentId: string) => {
       ) : (
         <>
          <div>
-         <div className='inline-block w-auto mx-auto m-2 bg-slate-400 rounded-xl pt-3'>
+         <div className='relative inline-block w-auto mx-auto m-2 bg-slate-400 rounded-xl pt-3'>
          <div style={{ overflowWrap: 'break-word' }} className='p-2 pl-5 box2 '>{props.comment.name}</div>
           <div className='flex p-2'>
             <Buttonb

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CommentBox from './components/Commentbox';
 import { Comment } from './components/types';
 import './App.css'
+import Particlesp from './components/particles';
 
 
 const App: React.FC = () => {
@@ -18,8 +19,8 @@ const App: React.FC = () => {
   // };
   return (
     <div className="App p-10 bg-black ">
-     
-      <div className=' box '>
+     <Particlesp/>
+      <div className=' box  '>
       <CommentBox
         comment={initialComment}
 
