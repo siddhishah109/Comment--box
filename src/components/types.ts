@@ -1,5 +1,10 @@
 export interface Comment {
-    id: string;
-    name: string;
-    item?: Comment[];
-  }
+  id: string;
+  name: string;
+  replies: Reply[];
+}
+
+export interface Reply {
+  id: string;
+  text: string;
+}

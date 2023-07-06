@@ -1,34 +1,71 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CommentBox from './components/Commentbox';
-import { Comment } from './components/types';
+import { Comment, Reply } from './components/types';
 import './App.css'
 import Particlesp from './components/particles';
+import SendComment from './components/addmaincomment';
 
 
 const App: React.FC = () => {
-  const initialComment: Comment = {
-    id: '1',
-    name: 'Initial Comment',
-    item: [],
-  };
-
   const [comments, setComments] = useState<Comment[]>([]);
-  
-  return (
-    <div className="App p-10 bg-black ">
-     <Particlesp/>
-      <div className=' box  '>
-      <CommentBox
-        comment={initialComment}
+  useEffect(() => {
+    const storedComments = localStorage.getItem('comments');
+    if (storedComments) {
+      setComments((prevComments) => {
+        if (prevComments.length === 0) {
+          return JSON.parse(storedComments);
+        }
+        return prevComments;
+      });
+    }
+  }, []);
 
-      />
-      {comments.map((comment) => (
-        <CommentBox
-          key={comment.id}
-          comment={comment}
-       
-        />
-      ))}
+  useEffect(() => {
+    localStorage.setItem('comments', JSON.stringify(comments));
+    console.log( JSON.stringify(comments));
+  }, [comments]);
+
+  const handleAddComment = (commentText: string) => {
+    if (commentText.trim() !== '') {
+      const newComment: Comment = {
+        id: Math.random().toString(),
+        name: commentText,
+        replies: [],
+        
+      };
+      setComments((prevComments) => [...prevComments,newComment]);
+    }
+  };
+  const handleAddReply = (commentId: string, replyText: string) => {
+    if (replyText.trim() !== '') {
+      const newReply: Reply = {
+        id: Math.random().toString(),
+        text: replyText,
+      };
+
+      setComments((prevComments) => {
+        return prevComments.map((comment) => {
+          if (comment.id === commentId) {
+            return {
+              ...comment,
+              replies: [...comment.replies, newReply],
+            };
+          }
+          return comment;
+        });
+      });
+    }
+  };
+  return (
+    <div className="App p-10 bg-black">
+      <Particlesp />
+      <div className="box">
+      <SendComment handleAddComment={handleAddComment} />
+        {comments.map((comment) => (
+          <CommentBox key={comment.id} comment={comment} setComments={setComments} 
+          handleAddReply={handleAddReply}  />
+        ))}
+        
       </div>
     </div>
   );
