@@ -11,7 +11,9 @@ const ReplyComment: React.FC<ReplyCommentProps> = ({ handleAddReply ,commentId }
   const [showInputBox, setShowInputBox] = useState(true);
 
   const handleReplyComment = () => {
+   
     setInput('');
+
     handleAddReply(commentId, input);
     setShowInputBox(false);
   };
@@ -23,12 +25,13 @@ const ReplyComment: React.FC<ReplyCommentProps> = ({ handleAddReply ,commentId }
 
   return (
     <div>
-      {showInputBox &&(<div className="box2">
+      {showInputBox &&(
+      <div className="box2 justify-center box4 ">
       <input
         type="text"
         value={input}
         autoFocus
-        className="bg-gray-50 border border-amber-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block   p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        className="bg-gray-50 border border-amber-500ing-blue-500 focus:border-blue-500 block   p-2.5 rounded"
         placeholder="type.."
         onChange={(e) => setInput(e.target.value)}
       />

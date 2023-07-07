@@ -4,7 +4,7 @@ export interface IButtonProps {
   type: string;
   icon: string;
   className?: string;
-  handleClick?: () => void;
+  handleClick: () => void;
 }
 
 export default function Buttonb(props: IButtonProps) {

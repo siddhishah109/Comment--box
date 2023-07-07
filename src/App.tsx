@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import CommentBox from './components/Commentbox';
 import { Comment, Reply } from './components/types';
 import './App.css'
-import Particlesp from './components/particles';
+// import Particlesp from './components/particles';
 import SendComment from './components/addmaincomment';
 
 
@@ -33,7 +33,7 @@ const App: React.FC = () => {
         replies: [],
         
       };
-      setComments((prevComments) => [...prevComments,newComment]);
+      setComments((prevComments) => [newComment,...prevComments]);
     }
   };
   const handleAddReply = (commentId: string, replyText: string) => {
@@ -57,9 +57,9 @@ const App: React.FC = () => {
     }
   };
   return (
-    <div className="App p-10 bg-black">
-      <Particlesp />
-      <div className="box">
+    <div className="App p-10 bg-black border-cyan-50 ">
+      {/* <Particlesp /> */}
+      <div className="box border ">
       <SendComment handleAddComment={handleAddComment} />
         {comments.map((comment) => (
           <CommentBox key={comment.id} comment={comment} setComments={setComments} 

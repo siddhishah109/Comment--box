@@ -4,17 +4,32 @@
   
 }
 .App{
-background-color: #000;
+background-color: #eeebeb;
 height: 100vh;
 }
-@media only screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
     .box{
-      background-color: black;
-      /* background-color: rgb(164, 184, 184); */
+      background-color:  #eeebeb;
       margin: auto;
-      width: 70%;
-   
+      width: 100%;
+    
     }
+    .box4{
+      margin-left: 20%!important;
+    }
+    .tb{
+      margin: 0 0 !important;
+    }
+    .box3{
+      margin-left: 0!important;
+    }
+    .comment-box{
+      width: 100%!important;
+    }
+    .comment-box-r{
+      min-width: 70%;
+    }
+    
 
   }
   .box2{
@@ -22,4 +37,24 @@ height: 100vh;
     word-break: break-all;
   }
 
-  
+.main-text-area {
+  width: 60%;
+  height: 7rem;
+}
+
+
+
+.comment-box-r{
+  min-width: 70%;
+}
+
+.box3{
+  margin-left: 30%;
+}
+.box4{
+  margin-left: 35%;
+}
+
+.tb{
+  margin: 0 15%;
+}
