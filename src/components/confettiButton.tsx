@@ -6,7 +6,7 @@ const ConfettiButton: React.FC = () => {
 
   const handleClick = () => {
     setIsConfettiActive(true);
-    // Reset confetti after 3 seconds
+    // after 3 seconds
     setTimeout(() => setIsConfettiActive(false), 3000);
   };
 
